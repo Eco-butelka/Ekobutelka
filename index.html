@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoKaucja Pro</title>
     <!-- Tailwind CSS -->
+     <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#22c55e">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -697,6 +699,11 @@
                 } catch(e) {}
             }
         }
+        if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(err => console.log('SW error: ', err));
+    });
+}
     </script>
 </body>
 </html>
